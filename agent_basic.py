@@ -1,4 +1,20 @@
 import json
+import os
+import subprocess
+
+def read_file(path):
+    """Reads the content of a file."""
+    if not os.path.isfile(path):
+        return f"Error: File '{path}' does not exist."
+    if not os.path.isfile(path):
+        return f"Error: Path '{path}' is not a file."
+    try:
+        with open(path, 'r') as file:
+            content = f.read()
+        return file.read()
+    except Exception as e:
+        return f"Error reading file '{path}': {str(e)}"
+    
 history = []
 def mock_llm(prompt, history):
     prompt_lower = prompt.strip().lower()
